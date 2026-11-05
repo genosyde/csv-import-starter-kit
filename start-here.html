@@ -1,0 +1,139 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="A free offline CSV import readiness kit with a small-file checker, synthetic test files, reusable rules and a practical import checklist."><title>CSV Import Starter Kit — Try before you import</title><style>:root{--ink:#182d28;--muted:#65746b;--paper:#f6f7ef;--white:#fffef9;--line:#d9dfd1;--lime:#d9f292}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}header{max-width:1300px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:22px;padding:26px 34px;border-bottom:1px solid var(--line)}a{color:inherit}.brand{font-size:29px;font-weight:750;text-decoration:none;letter-spacing:-1px;display:flex;align-items:center;gap:12px}.brand span{font-size:17px;letter-spacing:-.3px}nav{display:flex;gap:22px;font-size:12px}nav a{text-decoration:none}.pill,.tag{font:10px ui-monospace,monospace;letter-spacing:1px}.pill{border:1px solid var(--line);padding:8px 12px;border-radius:30px}main{max-width:1190px;margin:auto;padding:0 28px}.hero{padding:62px 0 44px;max-width:860px}.eyebrow{font:11px ui-monospace,monospace;letter-spacing:1.7px;color:var(--muted);margin:0 0 16px}h1{font-size:clamp(44px,5.5vw,72px);line-height:1.08;font-weight:580;letter-spacing:-3.8px;margin:0 0 22px}h1 em{font:normal 1em/1.08 Georgia,serif;color:#587546;letter-spacing:-2.6px}.lead{font-size:18px;color:var(--muted);max-width:660px}.trust{display:flex;gap:24px;font-size:12px;margin:24px 0}.trust span:before{content:'✓ ';color:#547634}.small{font-size:11px;color:var(--muted);line-height:1.8}.muted{color:var(--muted);max-width:850px}.card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:26px}.section-head{display:flex;justify-content:space-between;align-items:center;gap:20px}.section-head .eyebrow{margin-bottom:10px}h2{font-size:25px;line-height:1.3;letter-spacing:-.8px;font-weight:600;margin:0 0 10px}h3{font-size:21px;line-height:1.4;letter-spacing:-.5px;margin:4px 0 12px;font-weight:600}button,select{font:inherit}button,.primary,.secondary{cursor:pointer;border-radius:7px;display:inline-block;text-decoration:none;font-size:12px;padding:10px 14px;line-height:1.5}button:disabled{opacity:.45;cursor:default}.secondary{background:var(--white);color:var(--ink);border:1px solid #cfd8c3}.primary{background:var(--ink);border:1px solid var(--ink);color:var(--lime)}.text-button{background:transparent;border:0;color:var(--ink);font-size:11px;padding:8px}.secondary:hover,.text-button:hover{background:#edf4df}button:focus-visible,a:focus-visible,select:focus-visible{outline:3px solid #6a8c43;outline-offset:3px}.controls{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding-top:24px}.controls label{font-size:12px;color:var(--muted)}select{border:1px solid var(--line);border-radius:6px;padding:9px;background:var(--white);color:var(--ink);font-size:12px}.file-button{position:relative;padding:9px 16px;border:1px solid var(--line);border-radius:7px;background:#eef4e2;cursor:pointer;overflow:hidden}.file-button input{position:absolute;inset:0;opacity:0;width:100%;cursor:pointer}.file-button:focus-within{outline:3px solid #6a8c43}#filename{font-size:11px;color:var(--muted);overflow-wrap:anywhere}#clear{margin-left:auto}#status{font-size:13px;color:#426137}#status.error{color:#ad3829}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:20px 0}.stats>div{border:1px solid var(--line);border-radius:8px;padding:17px}.stats strong{font-size:32px;font-weight:550;display:block;letter-spacing:-1px}.stats span{font-size:11px;color:var(--muted)}.stats .lime{background:var(--lime);border-color:var(--lime)}.table-wrap{overflow:auto;max-height:340px;border:1px solid var(--line);border-radius:7px}table{border-collapse:collapse;text-align:left;min-width:100%;font-size:12px}td,th{padding:10px 13px;border-bottom:1px solid #e5e9dc;vertical-align:top}th{background:#eef2e5;position:sticky;top:0;font:10px ui-monospace,monospace;text-transform:uppercase;color:var(--muted)}td{max-width:400px;overflow-wrap:anywhere}.report-bar{display:flex;align-items:center;gap:18px;margin-top:20px}section[id]{scroll-margin-top:20px}#examples,#tools{margin-top:48px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}.grid .card{padding:23px}.grid p{font-size:13px;color:var(--muted)}.grid .small{font-size:11px}.grid .text-button{display:inline-block}.check-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin:20px 0}.check-grid h3{font-size:17px}.check-grid label{display:block;font-size:12px;color:var(--muted);margin:14px 0}input[type=checkbox]{accent-color:#416331}#checklist{margin-top:35px}.featured{border-color:#afc582;background:#f2f8e5}.tools .tag{font-size:10px;min-height:16px}.tools a{margin-top:12px}.tools strong{font-size:13px}.bundle{display:block;text-decoration:none;background:var(--ink);color:var(--lime);padding:18px 24px;border-radius:9px;text-align:center;margin-top:20px;font-size:15px}footer{display:flex;justify-content:space-between;gap:18px;padding:28px 0;border-top:1px solid var(--line);margin-top:42px;font-size:11px;color:var(--muted)}[hidden]{display:none!important}@media(max-width:760px){header{padding:19px 22px;flex-wrap:wrap}nav{order:3;width:100%;justify-content:space-between}.pill{font-size:9px}.brand span{font-size:14px}main{padding:0 18px}.hero{padding-top:40px}h1{letter-spacing:-2.3px}.lead{font-size:16px}.card{padding:19px}.section-head{flex-wrap:wrap}.grid,.check-grid{grid-template-columns:1fr;gap:14px}.trust{gap:14px;font-size:11px}.report-bar{align-items:flex-start;flex-direction:column}.stats>div{padding:12px}.stats strong{font-size:27px}.stats span{font-size:10px}footer{flex-direction:column}}@media print{header nav,.controls,.file-button,button,.report-bar,.bundle{display:none!important}body{background:white}main{max-width:none}.hero{padding:15px 0}h1{font-size:36px}.grid,.check-grid{display:block}.card{break-inside:avoid;margin:10px 0}#results{break-inside:avoid}.tools a{color:black;background:none}footer{margin-top:12px}}
+</style></head><body>
+<header><a class="brand" href="#">r.<span>CSV Import Starter Kit</span></a><nav><a href="#checker">Checker</a><a href="#examples">Test files</a><a href="#checklist">Checklist</a><a href="#tools">Full tools</a></nav><span class="pill">FREE LOCAL EDITION</span></header>
+<main><section class="hero"><p class="eyebrow">A SMALL REHEARSAL BEFORE A BIG IMPORT</p><h1>Find the surprises.<br><em>Before your import does.</em></h1><p class="lead">Check a small CSV on your own device. Practice with deliberately imperfect files. Bring a repeatable checklist to your next data handoff.</p><div class="trust"><span>Works offline</span><span>No installation</span><span>No data uploads</span></div><p class="small">Free scope: UTF-8 CSV/TSV · 200 data records · 50 columns · 512 KiB. Files over the limit are rejected, never silently truncated.</p></section>
+<section id="checker" class="card"><div class="section-head"><div><p class="eyebrow">01 / TRY THE CHECKER</p><h2>A second pair of eyes for a small file.</h2></div><button id="loadExample" class="secondary">Load an imperfect example ↗</button></div><div class="controls"><label>Check profile <select id="profile"><option value="generic">Basic structure</option><option value="contacts">Contacts</option><option value="inventory">Inventory</option><option value="orders">Orders</option></select></label><label class="file-button">Choose CSV / TSV<input id="file" type="file" accept=".csv,.tsv,text/csv,text/tab-separated-values"></label><span id="filename">No file selected</span><button id="clear" class="text-button">Clear</button></div><p id="headersHint" class="small"></p><p id="status" role="status" aria-live="polite">Choose a file or try the synthetic example. No data will be changed.</p>
+<div id="results" hidden><div class="stats"><div><strong id="recordCount"></strong><span>Records inspected</span></div><div class="lime"><strong id="findingCount"></strong><span>Findings to review</span></div><div><strong id="columnCount"></strong><span>Columns</span></div></div><div class="table-wrap"><table><thead><tr><th>Record</th><th>Column</th><th>Check</th><th>Finding</th></tr></thead><tbody id="findings"></tbody></table></div><p id="findingLimit" class="small"></p></div><div class="report-bar"><button id="downloadReport" class="secondary" disabled>Download JSON findings ↓</button><span class="small">Read-only inspection. No cleaned-file export, custom rules or folder processing in this free edition.</span></div><p class="small">Email checks test basic syntax, not deliverability. Dates must be real YYYY-MM-DD dates. Numbers use ungrouped decimals. Formula-like values are flagged, not executed or repaired. A clean report does not guarantee a successful destination import.</p></section>
+<section id="examples"><div class="section-head"><div><p class="eyebrow">02 / PRACTICE WITH KNOWN FAILURES</p><h2>Six small files. Three repeatable profiles.</h2></div></div><p class="muted">Each pair has the same schema: one clean file and one file that needs review. All names and addresses are synthetic; example email domains do not deliver mail.</p><div class="grid"><article class="card"><h3>Contacts</h3><p>Duplicate IDs, repeated records, invalid email syntax and a missing email.</p><p class="small">Expected: 5 findings in the review file; 0 in the clean file.</p><button class="secondary" data-sample="contacts-needs-review.csv">Review file ↓</button> <button class="text-button" data-sample="contacts-clean.csv">Clean file ↓</button><button class="text-button" data-policy="contacts">RowReady rules ↓</button></article><article class="card"><h3>Inventory</h3><p>Text in numeric fields, an empty quantity, a repeated SKU and a grouped price.</p><p class="small">Expected: 4 findings in the review file; 0 in the clean file.</p><button class="secondary" data-sample="inventory-needs-review.csv">Review file ↓</button> <button class="text-button" data-sample="inventory-clean.csv">Clean file ↓</button><button class="text-button" data-policy="inventory">RowReady rules ↓</button></article><article class="card"><h3>Orders</h3><p>An impossible date, a non-ISO date, an invalid email and a nonnumeric total.</p><p class="small">Expected: 4 findings in the review file; 0 in the clean file.</p><button class="secondary" data-sample="orders-needs-review.csv">Review file ↓</button> <button class="text-button" data-sample="orders-clean.csv">Clean file ↓</button><button class="text-button" data-policy="orders">RowReady rules ↓</button></article></div></section>
+<section id="checklist" class="card"><div class="section-head"><div><p class="eyebrow">03 / USE A HANDOFF CHECKLIST</p><h2>Make the next import boring.</h2></div><button id="print" class="secondary">Print this guide</button></div><div class="check-grid"><article><h3>Before you export</h3><label><input type="checkbox"> Keep an untouched source copy and identify the system of record.</label><label><input type="checkbox"> Confirm exact target headers, required fields, unique keys and allowed values.</label><label><input type="checkbox"> Confirm date format, decimal separator, units, currency and text encoding.</label></article><article><h3>Before you import</h3><label><input type="checkbox"> Keep identifiers as text; preserve leading zeros and long account-like IDs.</label><label><input type="checkbox"> Review duplicates, missing values, inconsistent widths and formula-like cells.</label><label><input type="checkbox"> Resolve ambiguous values from the source. Do not invent missing customer data.</label></article><article><h3>After a small test</h3><label><input type="checkbox"> Import a small subset into a test workspace or use the destination's preview.</label><label><input type="checkbox"> Reconcile source, accepted, rejected and skipped record counts.</label><label><input type="checkbox"> Spot-check identifiers, dates and numeric fields; keep the error report and rollback plan.</label></article></div><p class="small">Checkboxes are temporary and are not saved. This is an operational checklist, not a compliance certification or a substitute for destination-system validation.</p></section>
+<section id="tools"><p class="eyebrow">04 / WHEN THE SMALL CHECK ISN'T ENOUGH</p><h2>Choose the tool for the job.</h2><div class="grid tools"><article class="card"><p class="tag">FREE / THIS KIT</p><h3>Start with a rehearsal.</h3><p>Small UTF-8 files, fixed profiles, synthetic practice data and JSON findings. No file changes.</p><strong>$0 minimum on Gumroad</strong></article><article class="card featured"><p class="tag">ROWREADY / $19 ONE TIME</p><h3>Make CSV checks repeatable.</h3><p>Up to 50,000 records / 10 MiB, custom column rules, opt-in cleanup, cleaned CSV export, saved rules and a Node.js folder checker.</p><a class="primary" href="https://genosyde.gumroad.com/l/rowready" target="_blank" rel="noopener noreferrer">See RowReady ↗</a></article><article class="card"><p class="tag">NAMEHARBOR / $9 ONE TIME</p><h3>Review names before renaming.</h3><p>A Windows x64 desktop app for filename previews, conflict checks and recovery logs. Source included; EXE unsigned. Recovery needs unchanged files and available original names.</p><a class="secondary" href="https://genosyde.gumroad.com/l/nameharbor" target="_blank" rel="noopener noreferrer">See NameHarbor ↗</a></article></div><a class="bundle" data-bundle hidden target="_blank" rel="noopener noreferrer">Get both full tools for $22 — individually $28 ↗</a><p class="small">Listed USD base prices were set November 5, 2026. Store prices, local currency and tax are shown at checkout. Bundles include a Windows-only component. This kit does not include the paid applications.</p></section>
+<footer><span>CSV Import Starter Kit · Local edition 1.0</span><span>Files stay here. Your next step is yours.</span></footer></main><script>const MAX_BYTES = 10 * 1024 * 1024;
+const MAX_ROWS = 50000;
+function detectDelimiter(text) {
+  const candidates = [',',';','\t','|'];
+  let quote=false, counts=candidates.map(()=>0);
+  for(let i=0;i<text.length;i++) {
+    const c=text[i];
+    if(c==='"') { if(quote && text[i+1]==='"') i++; else quote=!quote; }
+    else if(!quote) { if(c==='\r'||c==='\n') break; const n=candidates.indexOf(c); if(n>=0) counts[n]++; }
+  }
+  return candidates[counts.indexOf(Math.max(...counts))];
+}
+function parseCSV(input, delimiter='auto') {
+  const text=input.replace(/^\uFEFF/,'');
+  if(new TextEncoder().encode(text).length>MAX_BYTES) throw Error('File exceeds the 10 MiB limit.');
+  const sep=delimiter==='auto'?detectDelimiter(text):delimiter;
+  if(![',',';','\t','|'].includes(sep)) throw Error('Unsupported delimiter.');
+  const rows=[]; let row=[],field='',quoted=false,closed=false,start=true;
+  function finishField(){row.push(field);field='';start=true;closed=false;}
+  function finishRow(){finishField(); rows.push(row);row=[];if(rows.length>MAX_ROWS+1)throw Error('File exceeds 50,000 data records.');}
+  for(let i=0;i<text.length;i++) {
+    const c=text[i];
+    if(quoted) {if(c==='"'){if(text[i+1]==='"'){field+='"';i++;}else{quoted=false;closed=true;}}else field+=c;continue;}
+    if(c===sep){finishField();continue;}
+    if(c==='\n'||c==='\r'){if(c==='\r'&&text[i+1]==='\n')i++;finishRow();continue;}
+    if(closed)throw Error(`Unexpected text after closing quote in record ${rows.length+1}.`);
+    if(c==='"'){if(!start)throw Error(`Unexpected quote in record ${rows.length+1}.`);quoted=true;start=false;continue;}
+    field+=c;start=false;
+  }
+  if(quoted)throw Error('Unclosed quoted field.');
+  if(field!==''||row.length||closed)finishRow();
+  return {rows,delimiter:sep};
+}
+function formulaLike(value){return /^[\s\u0000-\u001f]*[=+@-]/.test(value);}
+function writeCSV(rows,{delimiter=',',safe=true}={}) {
+  return '\uFEFF'+rows.map(row=>row.map(value=>{
+    let s=String(value??''); if(safe&&formulaLike(s))s="'"+s;
+    return /["\r\n]/.test(s)||s.includes(delimiter)?'"'+s.replaceAll('"','""')+'"':s;
+  }).join(delimiter)).join('\r\n')+'\r\n';
+}
+function validDate(v){
+  if(!/^\d{4}-\d{2}-\d{2}$/.test(v))return false;
+  const d=new Date(v+'T00:00:00Z');return !isNaN(d)&&d.toISOString().slice(0,10)===v;
+}
+function audit(parsed,options={}) {
+  const {trim=false,dropBlank=false,dedupe=false,rules={}}=options;
+  const original=parsed.rows;
+  if(!original.length)throw Error('The file is empty.');
+  const headers=original[0].map(x=>trim?x.trim():x), issues=[], cleaned=[headers];
+  let issueCount=0;
+  const add=(record,column,code,message)=>{issueCount++;if(issues.length<10000)issues.push({record,column,code,message});};
+  const seenHeaders=new Set();
+  headers.forEach((h,i)=>{if(!h.trim())add(1,String(i+1),'empty_header','Header is empty.');if(seenHeaders.has(h))add(1,h,'duplicate_header','Header is repeated.');seenHeaders.add(h);});
+  const ruleEntries=Object.entries(rules);
+  for(const [h,r] of ruleEntries){
+    if(!headers.includes(h))add(1,h,'missing_column','Rule column is missing from the file.');
+    if(!r||typeof r!=='object'||Array.isArray(r))throw Error('Each rule must be an object.');
+    if(r.type&&!['text','email','number','date'].includes(r.type))throw Error('Unknown rule type: '+r.type);
+  }
+  const seenRows=new Set(), unique=new Map();let removedBlank=0,removedDuplicate=0,changedCells=0;
+  original.slice(1).forEach((raw,idx)=>{
+    const record=idx+2;
+    const row=raw.map(v=>{const next=trim?v.trim():v;if(next!==v)changedCells++;return next;});
+    if(row.length!==headers.length)add(record,'','column_count',`Expected ${headers.length} columns; found ${row.length}.`);
+    const blank=row.every(v=>v.trim()==='');
+    if(blank){add(record,'','blank_row','Record has no values.');if(dropBlank){removedBlank++;return;}}
+    const key=JSON.stringify(row);
+    if(seenRows.has(key)){add(record,'','duplicate_row','Exact duplicate record.');if(dedupe){removedDuplicate++;return;}}
+    seenRows.add(key);
+    row.forEach((v,col)=>{if(formulaLike(v))add(record,headers[col]??String(col+1),'formula','Potential spreadsheet formula; safe export prefixes an apostrophe.');});
+    headers.forEach((h,col)=>{
+      const rule=Object.hasOwn(rules,h)?rules[h]:{}, v=row[col]??'';
+      if(rule.required&&!v.trim())add(record,h,'required','Required value is missing.');
+      if(!v.trim())return;
+      if(rule.type==='email'&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v))add(record,h,'email','Expected an email address (basic syntax check only).');
+      if(rule.type==='number'&&!/^[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?$/.test(v))add(record,h,'number','Expected an ungrouped decimal number.');
+      if(rule.type==='date'&&!validDate(v))add(record,h,'date','Expected a real date in YYYY-MM-DD format.');
+      if(rule.unique){if(!unique.has(col))unique.set(col,new Set());const s=unique.get(col);if(s.has(v))add(record,h,'unique','Value is repeated in a unique column.');s.add(v);}
+    });
+    cleaned.push(row);
+  });
+  return {headers,cleaned,issues,summary:{inputRecords:original.length-1,outputRecords:cleaned.length-1,columns:headers.length,issueCount,reportedIssues:issues.length,issuesTruncated:issueCount>issues.length,removedBlank,removedDuplicate,changedCells},options};
+}
+function validatePolicy(value){
+  if(!value||typeof value!=='object'||Array.isArray(value))throw Error('Policy must be an object.');
+  const out={};for(const key of ['trim','dropBlank','dedupe']){if(value[key]!==undefined&&typeof value[key]!=='boolean')throw Error(key+' must be boolean.');out[key]=!!value[key];}
+  const rules=value.rules??{};
+  if(!rules||typeof rules!=='object'||Array.isArray(rules))throw Error('rules must be an object.');
+  for(const rule of Object.values(rules)){if(!rule||typeof rule!=='object'||Array.isArray(rule))throw Error('Invalid column rule.');if(rule.type&&!['text','email','number','date'].includes(rule.type))throw Error('Invalid column type.');for(const k of ['required','unique'])if(rule[k]!==undefined&&typeof rule[k]!=='boolean')throw Error('Invalid '+k+' rule.');}
+  return {...out,rules};
+}
+
+const presets={
+  generic:{label:'Basic structure',rules:{}},
+  contacts:{label:'Contacts',rules:{id:{required:true,unique:true},email:{required:true,type:'email'}}},
+  inventory:{label:'Inventory',rules:{sku:{required:true,unique:true},quantity:{required:true,type:'number'},unit_price:{required:true,type:'number'}}},
+  orders:{label:'Orders',rules:{order_id:{required:true,unique:true},email:{required:true,type:'email'},date:{required:true,type:'date'},total:{required:true,type:'number'}}}
+};
+const LITE_MAX_BYTES=512*1024;
+function inspectLite(text,preset='generic'){
+  if(!Object.hasOwn(presets,preset))throw Error('Choose one of the supplied profiles.');
+  if(new TextEncoder().encode(text).length>LITE_MAX_BYTES)throw Error('Free checker limit: 512 KiB. Use a smaller file or RowReady.');
+  const parsed=parseCSV(text);
+  if(!parsed.rows.length)throw Error('The file is empty.');
+  if(parsed.rows.length-1>200)throw Error('Free checker limit: 200 data records. The file was not truncated or checked.');
+  if(parsed.rows[0].length>50)throw Error('Free checker limit: 50 columns.');
+  const r=audit(parsed,{rules:presets[preset].rules});
+  return {profile:preset,summary:r.summary,issues:r.issues,delimiter:parsed.delimiter};
+}
+
+const samples={"contacts-clean.csv":"id,name,email\r\n001,Ari Park,ari@example.invalid\r\n002,Bo Lee,bo@example.invalid\r\n003,Casey Kim,casey@example.invalid\r\n","contacts-needs-review.csv":"id,name,email\r\n001,Ari Park,ari@example.invalid\r\n002,Bo Lee,not-an-email\r\n002,Bo Lee,not-an-email\r\n003,Casey Kim,\r\n","inventory-clean.csv":"sku,name,quantity,unit_price\r\n0001,Demo part,10,2.50\r\n0002,Demo kit,5,3.00\r\n0003,Demo case,8,4.00\r\n0004,Demo lid,4,1250\r\n","inventory-needs-review.csv":"sku,name,quantity,unit_price\r\n0001,Demo part,10,2.50\r\n0002,Demo kit,ten,3.00\r\n0003,Demo case,,4.00\r\n0003,Demo lid,4,\"1,250\"\r\n","orders-clean.csv":"order_id,email,date,total\r\nA001,ari@example.invalid,2026-11-05,19.00\r\nA002,bo@example.invalid,2026-02-28,9.00\r\nA003,casey@example.invalid,2026-11-05,28.00\r\nA004,devon@example.invalid,2026-11-05,22.00\r\n","orders-needs-review.csv":"order_id,email,date,total\r\nA001,ari@example.invalid,2026-11-05,19.00\r\nA002,bo@example.invalid,2026-02-30,9.00\r\nA003,casey@example.invalid,05/11/2026,28.00\r\nA004,bad-address,2026-11-05,USD22\r\n"};
+const bundleURL="https://genosyde.gumroad.com/l/offline-desk-toolkit";
+const $=id=>document.getElementById(id);let latestReport=null,selectedFile=null,readGeneration=0;
+function save(name,text,type){const u=URL.createObjectURL(new Blob([text],{type}));const a=document.createElement('a');a.href=u;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(u),2000);}
+function status(text,error=false){$('status').textContent=text;$('status').className=error?'error':'';}
+function clearReport(){readGeneration++;latestReport=null;$('results').hidden=true;$('downloadReport').disabled=true;}
+function hint(){const p=presets[$('profile').value];$('headersHint').textContent=Object.keys(p.rules).length?'Expected exact header names: '+Object.keys(p.rules).join(', '):'Checks headers, record widths, blank rows, exact duplicates and formula-like cells. No custom field validation.';}
+function runText(text,label){clearReport();try{latestReport={file:label,...inspectLite(text,$('profile').value)};const s=latestReport.summary;$('recordCount').textContent=s.inputRecords;$('findingCount').textContent=s.issueCount;$('columnCount').textContent=s.columns;$('results').hidden=false;$('downloadReport').disabled=false;const body=$('findings');body.replaceChildren();for(const issue of latestReport.issues.slice(0,50)){const tr=document.createElement('tr');for(const key of ['record','column','code','message']){const td=document.createElement('td');td.textContent=String(issue[key]);tr.append(td);}body.append(tr);}if(!s.issueCount){const tr=document.createElement('tr'),td=document.createElement('td');td.colSpan=4;td.textContent='No findings under this profile. Your destination system may apply additional checks.';tr.append(td);body.append(tr);}$('findingLimit').textContent=s.issueCount>50?'Showing first 50 findings. Download the JSON report for all stored findings (up to 10,000).':'Record 1 is the header. No data was changed.';status('Checked '+label+'. No file was uploaded or modified.');}catch(e){status(e.message,true);}}
+async function checkFile(){if(!selectedFile)return;clearReport();const file=selectedFile,token=readGeneration;try{if(file.size>LITE_MAX_BYTES)throw Error('Free checker limit: 512 KiB.');const text=new TextDecoder('utf-8',{fatal:true}).decode(await file.arrayBuffer());if(token!==readGeneration)return;runText(text,file.name);}catch(e){if(token!==readGeneration)return;status(e instanceof TypeError?'This checker accepts UTF-8 CSV/TSV. Convert a copy to UTF-8 before checking.':e.message,true);}}
+$('file').onchange=e=>{selectedFile=e.target.files[0]??null;$('filename').textContent=selectedFile?.name??'No file selected';checkFile();};
+$('profile').onchange=()=>{hint();clearReport();if(selectedFile)checkFile();else status('Profile changed. Load an example or choose a file.');};
+$('loadExample').onclick=()=>{selectedFile=null;$('file').value='';if($('profile').value==='generic')$('profile').value='contacts';hint();const key=$('profile').value+'-needs-review.csv';$('filename').textContent=key;runText(samples[key],key);};
+$('clear').onclick=()=>{selectedFile=null;$('file').value='';$('filename').textContent='No file selected';$('findings').replaceChildren();clearReport();status('Cleared. No uploaded data or browser storage is used.');};
+$('downloadReport').onclick=()=>{if(latestReport)save('csv-readiness-report.json',JSON.stringify(latestReport,null,2),'application/json');};
+for(const button of document.querySelectorAll('[data-sample]'))button.onclick=()=>save(button.dataset.sample,samples[button.dataset.sample],'text/csv;charset=utf-8');
+for(const button of document.querySelectorAll('[data-policy]'))button.onclick=()=>save(button.dataset.policy+'-rules.json',JSON.stringify({trim:false,dropBlank:false,dedupe:false,rules:presets[button.dataset.policy].rules},null,2),'application/json');
+$('print').onclick=()=>window.print();
+if(bundleURL){for(const a of document.querySelectorAll('[data-bundle]')){a.href=bundleURL;a.hidden=false;}}
+hint();
+</script></body></html>

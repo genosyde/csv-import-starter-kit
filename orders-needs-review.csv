@@ -1,0 +1,5 @@
+order_id,email,date,total
+A001,ari@example.invalid,2026-11-05,19.00
+A002,bo@example.invalid,2026-02-30,9.00
+A003,casey@example.invalid,05/11/2026,28.00
+A004,bad-address,2026-11-05,USD22

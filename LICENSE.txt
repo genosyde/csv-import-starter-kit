@@ -1,0 +1,16 @@
+CSV IMPORT STARTER KIT — FREE INTERNAL-USE LICENSE
+
+You may use this kit at no charge for personal work and internal work in
+your organization, including inspecting files on behalf of your clients.
+You may adapt the sample CSV files, JSON rule presets and checklist for
+those purposes. You retain all rights in your input data and reports.
+
+The checker and its embedded source may not be resold, redistributed as
+your own product or used to provide a competing hosted utility. Share the
+original Gumroad product URL when recommending the kit to other people.
+
+The kit is provided as-is, subject to applicable non-waivable rights.
+It does not guarantee destination-system compatibility or complete error
+detection. Keep backups, verify the target schema and review your results.
+This free kit does not grant a license to the full RowReady or NameHarbor
+applications, custom support, ongoing maintenance or future updates.

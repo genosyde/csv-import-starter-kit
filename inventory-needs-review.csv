@@ -1,0 +1,5 @@
+sku,name,quantity,unit_price
+0001,Demo part,10,2.50
+0002,Demo kit,ten,3.00
+0003,Demo case,,4.00
+0003,Demo lid,4,"1,250"
